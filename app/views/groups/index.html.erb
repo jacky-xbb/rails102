@@ -1,0 +1,28 @@
+<div>
+  <%= link_to 'New Group', new_group_path, class: "btn btn-primary" %>
+
+  <div class="overflow-x-auto">
+    <table class="table">
+      <!-- head -->
+      <thead> <tr>
+          <th></th>
+          <th>Title</th>
+          <th>description</th>
+          <th>Creator</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @groups.each_with_index do |group, index| %>
+          <tr class="">
+            <th><%= index+1 %></th>
+            <td><%= link_to group.title, group_path(group), class: "link" %></td>
+            <td><%= group.description %></td>
+            <td><%= group.user.email %></td>
+            <td><%= link_to "Edit", edit_group_path(group), class: "btn btn-sm" %></td>
+            <td><%= button_to "Delete", group_path(group), method: :delete, class: "btn btn-sm" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

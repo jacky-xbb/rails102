@@ -1,0 +1,38 @@
+<div class="navbar bg-base-100">
+  <div class="flex-1">
+    <%= link_to 'Rails 102', root_path, class: 'btn btn-ghost normal-case text-xl' %>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      <li>
+        <details>
+          <summary>
+            <% if user_signed_in? %>
+              <%=  current_user.email %>
+            <% else %>
+              <p>Welcome, Guest</p>
+            <% end %>
+          </summary>
+
+          <% if user_signed_in? %>
+            <ul class="z-50 p-2 bg-base-100">
+              <li><%= link_to "My Groups", account_groups_path %></li>
+              <li><%= link_to "My Posts", account_posts_path %></li>
+              <div class="divider"></div>
+              <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-sm' %>
+            </ul>
+          <% else %>
+            <ul class="p-2 bg-base-100">
+              <li>
+                <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-ghost' %>
+              </li>
+              <li>
+                <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-ghost' %>
+              </li>
+            </ul>
+          <% end %>
+        </details>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<h1 class="text-lg">Edit Group</h1>
+
+<div class="join join-vertical">
+  <%= form_with(model: @group, local: true) do |form| %>
+    <div class="form-control w-full max-w-xs">
+      <%= form.label :title, class: "label-text" %>
+      <%= form.text_field :title, class: "input input-bordered w-full max-w-xs"  %>
+    </div>
+
+    <div class="form-control w-full max-w-xs">
+      <%= form.label :description, class: "label-text" %>
+      <%= form.text_area :description, class: "input input-bordered w-full max-w-xs" %>
+    </div>
+
+    <div class="btn btn-primary mt-4">
+        <%= form.submit %>
+    </div>
+  <% end %>
+</div>
+
+
+
